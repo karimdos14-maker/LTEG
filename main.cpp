@@ -2,5 +2,4 @@
 
 int main() {
 	LTEG lg;
-	lg.generateChunk();
 }
