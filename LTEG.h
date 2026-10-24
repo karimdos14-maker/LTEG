@@ -2,8 +2,8 @@
 class LTEG
 {
 public:
-    void chunk();
-    void world();
+    void viewChecker();
+    void gameCycle();
     void generateChunk();
     void deleteChunk();
 };

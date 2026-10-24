@@ -1,9 +1,7 @@
 #include "LTEG.h"
 #include <vector>
 #include <iostream>
-void LTEG::chunk() {
-	bool plView = false;
-	struct NewChunk {
+struct NewChunk {
 		int newX;
 		int newY;
 		int newZ;
@@ -12,10 +10,13 @@ void LTEG::chunk() {
 		bool limitChunk;
 		bool chunkGenerate;
 		bool chunkDelete;
+		std::vector<std::vector<int>> chunkVec;
 		int X;
 		int Y;
 		int Z;
 	};
+void LTEG::viewChecker() {
+	bool plView = false;
 	Chunk chunk;
 	if (plView) {
 		chunk.chunkGenerate = true;
@@ -25,20 +26,27 @@ void LTEG::chunk() {
 	}
 }
 void LTEG::generateChunk() {
-	static constexpr int SIZE = 10;
-	bool blocks[SIZE][SIZE];
-	int chunkX;
-	int chunkZ;
-	blocks[0][0] = true;
-	blocks[5][5] = true;
-	blocks[10][10] = true;
-	for (int frcyc = 0; frcyc < SIZE; frcyc) {
-		for (int frcyct = 0; frcyct < SIZE; frcyct++) {
-			blocks[frcyc][frcyct] = true;
-			if (blocks[chunkX][chunkZ])
+		Chunk chunk;
+		for (int fcyc = 0; fcyc < 11; fcyc++)
+		{
+ 			for (int fcycc = 0; fcycc < 11; fcycc++)
 			{
-				std::cout << "*";
+                  chunk.chunkVec.push_back({0,0});
 			}
+		};
+		for (int X = 0; X < chunk.chunkVec.size(); X++){
+			for (int x = 0; x < chunk.chunkVec[X].size(); x++){
+				std::cout << chunk.chunkVec[X][x] << ' ';
+			}
+			std::cout << '\n';
 		}
+}
+void LTEG::gameCycle(){
+	char Exit;
+	do {
+		LTEG::viewChecker();
+		LTEG::generateChunk();
+        std::cin >> Exit;
 	}
+	while (Exit != 'q' && Exit != 'Q');
 }
