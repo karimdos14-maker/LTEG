@@ -3,6 +3,6 @@
 int main()
 {
 	LTEG lteg;
-	lteg.gameCycle();
+	lteg.engineCycle();
 	return 0;
 }

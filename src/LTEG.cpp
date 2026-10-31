@@ -55,7 +55,7 @@ void LTEG::viewChecker()
 		LTEG::generateChunk();
 	}
 }
-void LTEG::gameCycle()
+void LTEG::engineCycle()
 {
 	char exit = 'q';
 	bool isEngine = true;
