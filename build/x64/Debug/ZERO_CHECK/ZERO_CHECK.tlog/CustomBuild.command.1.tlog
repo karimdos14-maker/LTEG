@@ -1,0 +1,10 @@
+^D:\PROGRAMMING\LTEG\BUILD\CMAKEFILES\5F4B4D6483DD13DF2C6FF1D3E7367137\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/programming/LTEG -BD:/programming/LTEG/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/programming/LTEG/build/LTEG.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
