@@ -26,39 +26,49 @@ void LTEG::generateChunk()
 	newChunk->newX = 0;
 	newChunk->newY = 0;
 	newChunk->newZ = 0;
+	if (!chunks.empty())
+	{
+		newChunk->newX++;
+		newChunk->newY++;
+		newChunk->newZ++;
+		std::cout << "His Coordinate: X =  " << newChunk->newX << "Y =  " << newChunk->newY << "Z =  " << newChunk->newZ << '\n';
+	}
+	std::cout << "Chunk Generate" << '\n';
+	std::cout << "His Coordinate: X =  " << newChunk->newX << "Y =  " << newChunk->newY << "Z =  " << newChunk->newZ << '\n';
 	chunks.push_back(std::move(newChunk));
+	std::cout << "Chunks" << chunks.size() << '\n';
 }
 void LTEG::deleteChunk()
 {
+
 	if (!chunks.empty())
 	{
 		chunks.pop_back();
 	}
 }
+
 void LTEG::viewChecker()
 {
-	bool plview;
-	if (plview)
+	bool plview = true;
+	if (plview == true)
 	{
 		LTEG::generateChunk();
-	}
-	if (!plview)
-	{
-		LTEG::deleteChunk();
 	}
 }
 void LTEG::gameCycle()
 {
 	char exit = 'q';
-	bool isGame = true;
-	while (isGame)
+	bool isEngine = true;
+	while (isEngine)
 	{
 		if (_kbhit())
 		{
+			LTEG::generateChunk();
+			LTEG::viewChecker();
 			char key = _getch();
 			if (key == exit)
 			{
-				isGame = false;
+				isEngine = false;
 			}
 		}
 	}
