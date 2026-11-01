@@ -2,8 +2,8 @@
 #include <vector>
 #include <iostream>
 #include <memory>
-
 #include <conio.h>
+
 struct NewChunk
 {
 	int newX;
@@ -23,39 +23,38 @@ std::vector<std::unique_ptr<NewChunk>> chunks;
 void LTEG::generateChunk()
 {
 	auto newChunk = std::make_unique<NewChunk>();
+	std::size_t currC = chunks.size();
 	newChunk->newX = 0;
 	newChunk->newY = 0;
 	newChunk->newZ = 0;
-	if (!chunks.empty())
+	char keyBindChunk = 'F';
+	if (_kbhit())
 	{
-		newChunk->newX++;
-		newChunk->newY++;
-		newChunk->newZ++;
-		std::cout << "His Coordinate: X =  " << newChunk->newX << "Y =  " << newChunk->newY << "Z =  " << newChunk->newZ << '\n';
+		char keyNow = _getch();
+		std::cout << "Chunks " << chunks.size() << '\n';
+		if (keyNow == keyBindChunk)
+		{
+			for (std::size_t i = 0; i < chunks.size(); i++)
+			{
+				newChunk->newX = currC * 16;
+				newChunk->newY = currC * 64;
+				newChunk->newZ = currC * 16;
+				std::cout << "Chunk Generate" << '\n';
+				std::cout << "His Coordinate:" << '\n';
+				std::cout << "X =  " << newChunk->newX << '\n';
+				std::cout << "Y =  " << newChunk->newY << '\n';
+				std::cout << "Z =  " << newChunk->newZ << '\n';
+				chunks.push_back(std::move(newChunk));
+				std::cout << "Chunks " << chunks.size() << '\n';
+			}
+		}
 	}
-	std::cout << "Chunk Generate" << '\n';
-	std::cout << "His Coordinate: X =  " << newChunk->newX << "Y =  " << newChunk->newY << "Z =  " << newChunk->newZ << '\n';
-	chunks.push_back(std::move(newChunk));
-	std::cout << "Chunks" << chunks.size() << '\n';
 }
 void LTEG::deleteChunk()
 {
-
-	if (!chunks.empty())
-	{
-		chunks.pop_back();
-	}
 }
 
-void LTEG::viewChecker()
-{
-	bool plview = true;
-	if (plview == true)
-	{
-		LTEG::generateChunk();
-	}
-}
-void LTEG::engineCycle()
+int LTEG::engineCycle()
 {
 	char exit = 'q';
 	bool isEngine = true;
@@ -64,7 +63,6 @@ void LTEG::engineCycle()
 		if (_kbhit())
 		{
 			LTEG::generateChunk();
-			LTEG::viewChecker();
 			char key = _getch();
 			if (key == exit)
 			{
@@ -72,4 +70,5 @@ void LTEG::engineCycle()
 			}
 		}
 	}
+	return -1;
 }

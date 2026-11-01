@@ -4,7 +4,7 @@ class LTEG
 {
 public:
     void viewChecker();
-    void engineCycle();
+    int engineCycle();
     void generateChunk();
     void deleteChunk();
 };
