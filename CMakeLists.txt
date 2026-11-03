@@ -13,6 +13,7 @@ add_executable(LTEG
     src/LTEG.cpp
     src/LTEG.h
     Vulkan/vulkann.cpp
+    src/GLFWWindowInitialize.cpp
 )
 
 target_include_directories(LTEG PRIVATE
