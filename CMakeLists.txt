@@ -12,6 +12,7 @@ add_executable(LTEG
     src/main.cpp
     src/LTEG.cpp
     src/LTEG.h
+    Vulkan/vulkann.cpp
 )
 
 target_include_directories(LTEG PRIVATE
@@ -20,4 +21,18 @@ target_include_directories(LTEG PRIVATE
 
 target_link_libraries(LTEG PRIVATE
     Vulkan::Vulkan
+)
+
+set(GLFW_DIR "D:/glfw-3.5.1.bin.WIN64/glfw-3.5.1.bin.WIN64")
+
+target_include_directories(LTEG PRIVATE
+    "${GLFW_DIR}/include"
+)
+
+target_link_directories(LTEG PRIVATE
+    "${GLFW_DIR}/lib-vc2022"
+)
+
+target_link_libraries(LTEG PRIVATE
+    glfw3
 )
