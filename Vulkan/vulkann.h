@@ -6,5 +6,5 @@ class VulkanL
 public:
     int run_app();
     int vulkan_initiliaze_VkInstance();
-    int vulkan_initiliaze_VkDevice();
+    int vulkan_initiliaze_VkPhysDevice();
 };

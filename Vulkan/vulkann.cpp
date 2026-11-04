@@ -25,4 +25,7 @@ int VulkanL::vulkan_initiliaze_VkInstance()
         nullptr,
         &instance);
     return 0;
-};
+}
+int VulkanL::vulkan_initiliaze_VkPhysDevice()
+{
+}
