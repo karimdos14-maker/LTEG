@@ -1,4 +1,4 @@
-![Status](https://img.shields.io/badge/status-active%20development-brightgreen)
+![Status](https://img.shields.io/badge/status-active%20development-brightred)
 
 # LTEG (Low Tier Engine for Game)
 
