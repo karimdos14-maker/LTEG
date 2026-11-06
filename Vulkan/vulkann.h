@@ -1,15 +1,16 @@
 #pragma once
-#include <vulkan\vulkan.hpp>
+#include <Vulkan\vulkan.hpp>
+#include <GLFW/glfw3.h>
 class VulkanL
 {
 public:
-    VkInstance _instance = VK_NULL_HANDLE;
-    VkDevice _device = VK_NULL_HANDLE;
-    VkPhysicalDevice _chosenGPU = VK_NULL_HANDLE;
-    VkDebugUtilsMessengerEXT _debug_messenger = VK_NULL_HANDLE;
-    VkSurfaceKHR _window = VK_NULL_HANDLE;
-
-private:
+    // Handle
+    vk::Instance _instance = nullptr;
+    vk::Device _device = nullptr;
+    vk::PhysicalDevice _chosenGPU = nullptr;
+    vk::DebugUtilsMessengerEXT _debug_messenger = nullptr;
+    vk::SurfaceKHR _window = nullptr;
+    // Func
     bool init_vulkan_surface();
     bool init_vulkan_VkInstance();
     bool init_vulkan_device();

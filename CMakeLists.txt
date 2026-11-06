@@ -1,4 +1,3 @@
-
 cmake_minimum_required(VERSION 3.20)
 
 project(LTEG LANGUAGES CXX)
@@ -15,24 +14,17 @@ add_executable(LTEG
     Vulkan/vulkann.cpp
 )
 
+
 target_include_directories(LTEG PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/Vulkan
 )
 
-target_link_libraries(LTEG PRIVATE
+target_link_libraries(LTEG PRIVATE 
     Vulkan::Vulkan
 )
 
 set(GLFW_DIR "D:/glfw-3.5.1.bin.WIN64/glfw-3.5.1.bin.WIN64")
-
-target_include_directories(LTEG PRIVATE
-    "${GLFW_DIR}/include"
-)
-
-target_link_directories(LTEG PRIVATE
-    "${GLFW_DIR}/lib-mingw-w64"
-)
-
-target_link_libraries(LTEG PRIVATE
-    glfw3
-)
+target_include_directories(LTEG PRIVATE "${GLFW_DIR}/include")
+target_link_directories(LTEG PRIVATE "${GLFW_DIR}/lib-mingw-w64") 
+target_link_libraries(LTEG PRIVATE glfw3)

@@ -4,8 +4,9 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${VULKAN_SDK}/Include",
-                "D:/glfw-3.5.1.bin.WIN64/glfw-3.5.1.bin.WIN64/include"
+                "${workspaceFolder}/Vulkan",
+                "D:/glfw-3.5.1.bin.WIN64/glfw-3.5.1.bin.WIN64/include",
+                "D:/Vulkan_SDK/Include"
             ],
             "defines": [
                 "_DEBUG",
@@ -13,12 +14,13 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.26100.0",
-            "compilerPath": "cl.exe",
+            "compilerPath": "D:/mingw64/mingw64/bin/g++.exe",
             "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "windows-gcc-x64",
             "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4
+     
 }

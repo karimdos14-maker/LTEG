@@ -47,7 +47,7 @@ void LTEG::deleteChunk()
 		chunks.erase(chunks.begin());
 	}
 }
-void LTEG::newObject()
+void LTEG::addObject()
 {
 	auto Obj = std::make_unique<NewObject>();
 	Obj->size_X = 1;
@@ -72,11 +72,15 @@ int LTEG::engineCycle()
 			}
 			else if (keyN == keyBindObject)
 			{
-				LTEG::newObject();
+				LTEG::addObject();
 			}
 			if (keyN == exit)
 			{
 				isEngine = false;
+			}
+			if (keyN == 'V')
+			{
+				_vulkan.init_vulkan_VkInstance();
 			}
 		}
 	}
