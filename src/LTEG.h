@@ -5,5 +5,5 @@ public:
     int engineCycle();
     void generateChunk();
     void deleteChunk();
-    int newObject();
+    void newObject();
 };

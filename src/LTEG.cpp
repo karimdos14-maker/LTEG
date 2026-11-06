@@ -23,29 +23,22 @@ std::vector<std::unique_ptr<NewChunk>> chunks;
 std::vector<std::unique_ptr<NewObject>> newObject;
 void LTEG::generateChunk()
 {
-	char keyNow = _getch();
+
 	auto newChunk = std::make_unique<NewChunk>();
 	std::size_t currC = chunks.size();
 	newChunk->newX = 0;
 	newChunk->newY = 64;
 	newChunk->newZ = 0;
-	if (_kbhit())
-	{
-		if (keyNow == keyBindObject)
-		{
-			char keyNow = _getch();
-			std::cout << "Chunks " << chunks.size() << '\n';
-			newChunk->newX = currC * 16;
-			newChunk->newZ = currC * 16;
-			std::cout << "Chunk Generate" << '\n';
-			std::cout << "His Coordinate:" << '\n';
-			std::cout << "X =  " << newChunk->newX << '\n';
-			std::cout << "Y =  " << newChunk->newY << '\n';
-			std::cout << "Z =  " << newChunk->newZ << '\n';
-			chunks.push_back(std::move(newChunk));
-			std::cout << "Chunks " << chunks.size() << '\n';
-		}
-	}
+	std::cout << "Chunks " << chunks.size() << '\n';
+	newChunk->newX = currC * 16;
+	newChunk->newZ = currC * 16;
+	std::cout << "Chunk Generate" << '\n';
+	std::cout << "His Coordinate:" << '\n';
+	std::cout << "X =  " << newChunk->newX << '\n';
+	std::cout << "Y =  " << newChunk->newY << '\n';
+	std::cout << "Z =  " << newChunk->newZ << '\n';
+	chunks.push_back(std::move(newChunk));
+	std::cout << "Chunks " << chunks.size() << '\n';
 }
 void LTEG::deleteChunk()
 {
@@ -54,22 +47,15 @@ void LTEG::deleteChunk()
 		chunks.erase(chunks.begin());
 	}
 }
-int LTEG::newObject()
+void LTEG::newObject()
 {
-	auto newObject = std::make_unique<NewObject>();
-	if (_kbhit())
-	{
-		char keyNow = _getch();
-		if (keyNow == keyBindObject)
-		{
-			newObject->size_X = 1;
-			newObject->size_Y = 1;
-			newObject->size_Z = 1;
-			newObject->collectionObject.push_back(1);
-			std::cout << "object create";
-		}
-	};
-	return 0;
+	auto Obj = std::make_unique<NewObject>();
+	Obj->size_X = 1;
+	Obj->size_Y = 1;
+	Obj->size_Z = 1;
+	Obj->collectionObject.push_back(1);
+	std::cout << "object create\n";
+	newObject.push_back(std::move(Obj));
 }
 int LTEG::engineCycle()
 {
@@ -79,11 +65,16 @@ int LTEG::engineCycle()
 	{
 		if (_kbhit())
 		{
-			LTEG::generateChunk();
-			LTEG::deleteChunk();
-			LTEG::newObject();
-			char key = _getch();
-			if (key == exit)
+			char keyN = _getch();
+			if (keyN == keyBindChunk)
+			{
+				LTEG::generateChunk();
+			}
+			else if (keyN == keyBindObject)
+			{
+				LTEG::newObject();
+			}
+			if (keyN == exit)
 			{
 				isEngine = false;
 			}

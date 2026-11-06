@@ -13,7 +13,6 @@ add_executable(LTEG
     src/LTEG.cpp
     src/LTEG.h
     Vulkan/vulkann.cpp
-    src/GLFWWindowInitialize.cpp
 )
 
 target_include_directories(LTEG PRIVATE
@@ -31,7 +30,7 @@ target_include_directories(LTEG PRIVATE
 )
 
 target_link_directories(LTEG PRIVATE
-    "${GLFW_DIR}/lib-vc2022"
+    "${GLFW_DIR}/lib-mingw-w64"
 )
 
 target_link_libraries(LTEG PRIVATE
