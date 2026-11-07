@@ -2,9 +2,9 @@
 #include <vector>
 #include <iostream>
 #include <memory>
-#include <conio.h>
-char keyBindChunk = 'F';
-char keyBindObject = 'S';
+#include <GLFW/glfw3.h>
+#include <thread>
+#include <chrono>
 struct NewObject
 {
 	int size_X;
@@ -57,32 +57,27 @@ void LTEG::addObject()
 	std::cout << "object create\n";
 	newObject.push_back(std::move(Obj));
 }
-int LTEG::engineCycle()
+int LTEG::engineCycle(GLFWwindow *window)
 {
-	char exit = 'q';
-	bool isEngine = true;
-	while (isEngine)
+	while (!glfwWindowShouldClose(window))
 	{
-		if (_kbhit())
+		glfwPollEvents();
+		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
 		{
-			char keyN = _getch();
-			if (keyN == keyBindChunk)
-			{
-				LTEG::generateChunk();
-			}
-			else if (keyN == keyBindObject)
-			{
-				LTEG::addObject();
-			}
-			if (keyN == exit)
-			{
-				isEngine = false;
-			}
-			if (keyN == 'V')
-			{
-				_vulkan.init_vulkan_VkInstance();
-			}
+			generateChunk();
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		}
+		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		{
+			addObject();
+		}
+		if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
+		{
+			_vulkan.init_vulkan_VkInstance();
+			_vulkan.init_vulkan_surface(window);
+			_vulkan.init_vulkan_phys_device();
+			_vulkan.init_vulkan_device();
 		}
 	}
-	return -1;
+	return 0;
 }
