@@ -70,14 +70,9 @@ int LTEG::engineCycle(GLFWwindow *window)
 		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		{
 			addObject();
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
-		if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
-		{
-			_vulkan.init_vulkan_VkInstance();
-			_vulkan.init_vulkan_surface(window);
-			_vulkan.init_vulkan_phys_device();
-			_vulkan.init_vulkan_device();
-		}
-	}
+		return 0;
+	};
 	return 0;
 }

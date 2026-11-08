@@ -42,6 +42,7 @@
 build/
 Build/
 build-*/
+extetnal/
 
 # CMake generated files
 CMakeFiles/

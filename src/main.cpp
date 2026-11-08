@@ -1,31 +1,25 @@
-#include "LTEG.h"
 #include <iostream>
+#include "LTEG.h"
+#include <GLFW/glfw3.h>
 
 int main()
 {
+	LTEG lteg;
 	if (!glfwInit())
 	{
-		std::cout << "Failed init GLFW" << std::endl;
 		return -1;
 	}
+	GLFWwindow *window =
+		glfwCreateWindow(1920, 1080, "LTEG", nullptr, nullptr);
 
-	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-
-	GLFWwindow *window = glfwCreateWindow(800, 600, "LTEG", nullptr, nullptr);
 	if (!window)
-	{
-		const char *description;
-		int code = glfwGetError(&description);
-		std::cout << "Failed to create window. GLFW Error (" << code << "): " << description << std::endl;
-		glfwTerminate();
 		return -1;
+
+	while (!glfwWindowShouldClose(window))
+	{
+		glfwPollEvents();
+		lteg.engineCycle(window);
 	}
-
-	std::cout << "Window created successfully" << std::endl;
-
-	LTEG lteg;
-	lteg.engineCycle(window);
-
+	glfwDestroyWindow(window);
 	glfwTerminate();
-	return 0;
 }
