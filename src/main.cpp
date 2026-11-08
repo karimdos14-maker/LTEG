@@ -10,7 +10,7 @@ int main()
 		return -1;
 	}
 	GLFWwindow *window =
-		glfwCreateWindow(1920, 1080, "LTEG", nullptr, nullptr);
+		glfwCreateWindow(800, 600, "LTEG", nullptr, nullptr);
 
 	if (!window)
 		return -1;
@@ -20,6 +20,7 @@ int main()
 		glfwPollEvents();
 		lteg.engineCycle(window);
 	}
+
 	glfwDestroyWindow(window);
 	glfwTerminate();
 }

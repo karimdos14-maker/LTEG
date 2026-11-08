@@ -72,6 +72,11 @@ int LTEG::engineCycle(GLFWwindow *window)
 			addObject();
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
+		if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+		{
+			glfwWindowShouldClose(window);
+			glfwDestroyWindow(window);
+		}
 		return 0;
 	};
 	return 0;

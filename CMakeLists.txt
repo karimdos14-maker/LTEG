@@ -29,3 +29,20 @@ target_link_libraries(LTEG PRIVATE
     Vulkan::Vulkan
     glfw3
 )
+set(IMGUI_DIR "${CMAKE_SOURCE_DIR}/external/imgui-master")
+
+target_sources(LTEG PRIVATE
+    ${IMGUI_DIR}/imgui.cpp
+    ${IMGUI_DIR}/imgui_draw.cpp
+    ${IMGUI_DIR}/imgui_tables.cpp
+    ${IMGUI_DIR}/imgui_widgets.cpp
+
+    ${IMGUI_DIR}/backends/imgui_impl_glfw.cpp
+    ${IMGUI_DIR}/backends/imgui_impl_vulkan.cpp
+)
+
+
+target_include_directories(LTEG PRIVATE
+    ${IMGUI_DIR}
+    ${IMGUI_DIR}/backends
+)
