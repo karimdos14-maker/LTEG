@@ -6,8 +6,6 @@
 class VulkanL
 {
 private:
-public:
-    // Handle
     vk::Instance _instance = nullptr;
     vk::Device _device = nullptr;
     vk::PhysicalDevice _chosenGPU = nullptr;
@@ -25,6 +23,11 @@ public:
     uint32_t _currentImageIndex = 0;
     vk::CommandPool _commandPool;
     vk::CommandBuffer _commandBuffer;
+    VkDescriptorPool _imguiPool;
+
+public:
+    // Handle
+
     // Func
 
     bool init_vulkan_VkInstance();
@@ -34,4 +37,5 @@ public:
     bool init_swapchain();
     bool init_image_views();
     bool init_dynamic_rendering();
+    bool init_IMGUI(GLFWwindow *window);
 };
