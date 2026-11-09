@@ -5,7 +5,10 @@
 #include <GLFW/glfw3.h>
 #include <thread>
 #include <chrono>
-struct NewObject
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_vulkan.h>
+struct Object
 {
 	int size_X;
 	int size_Y;
@@ -20,7 +23,7 @@ struct NewChunk
 	std::size_t newZ;
 };
 std::vector<std::unique_ptr<NewChunk>> chunks;
-std::vector<std::unique_ptr<NewObject>> newObject;
+std::vector<std::unique_ptr<Object>> objs;
 void LTEG::generateChunk()
 {
 
@@ -49,19 +52,38 @@ void LTEG::deleteChunk()
 }
 void LTEG::addObject()
 {
-	auto Obj = std::make_unique<NewObject>();
+	auto Obj = std::make_unique<Object>();
 	Obj->size_X = 1;
 	Obj->size_Y = 1;
 	Obj->size_Z = 1;
 	Obj->collectionObject.push_back(1);
 	std::cout << "object create\n";
-	newObject.push_back(std::move(Obj));
+	objs.push_back(std::move(Obj));
 }
 int LTEG::engineCycle(GLFWwindow *window)
 {
 	while (!glfwWindowShouldClose(window))
 	{
 		glfwPollEvents();
+
+		ImGui_ImplVulkan_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
+		ImGui::Begin("LTEG Engine Debug Menu");
+		ImGui::Text("Active Chunks: %zu", chunks.size());
+		ImGui::Text("Created Objects: %zu", objs.size());
+
+		if (ImGui::Button("Generate Chunk (UI)"))
+		{
+			generateChunk();
+		}
+		if (ImGui::Button("Add Object (UI)"))
+		{
+			addObject();
+		}
+		ImGui::End();
+
 		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
 		{
 			generateChunk();
@@ -74,10 +96,14 @@ int LTEG::engineCycle(GLFWwindow *window)
 		}
 		if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
 		{
-			glfwWindowShouldClose(window);
-			glfwDestroyWindow(window);
+
+			glfwSetWindowShouldClose(window, GLFW_TRUE);
 		}
-		return 0;
-	};
+
+		ImGui::Render();
+
+		glfwSwapBuffers(window);
+	}
+
 	return 0;
 }

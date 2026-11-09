@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/Vulkan",
+                "${workspaceFolder}/vulkini",
                 "D:/glfw-3.5.1.bin.WIN64/glfw-3.5.1.bin.WIN64/include",
                 "D:/Vulkan_SDK/Include"
             ],

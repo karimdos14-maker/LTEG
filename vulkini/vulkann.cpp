@@ -1,5 +1,7 @@
 #include "vulkann.h"
 #include <iostream>
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
 bool VulkanL::init_vulkan_VkInstance()
 {
     try
@@ -127,6 +129,9 @@ bool VulkanL::init_vulkan_device()
     std::cout << "Logial and queues created" << std::endl;
     return true;
 }
+
+VkDescriptorPoolCreateInfo pool_info = {};
+
 bool VulkanL::init_swapchain()
 {
     vk::SurfaceCapabilitiesKHR capabilities = _chosenGPU.getSurfaceCapabilitiesKHR(_window);
