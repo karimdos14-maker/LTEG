@@ -5,9 +5,11 @@
 #include <GLFW/glfw3.h>
 #include <thread>
 #include <chrono>
-#include <imgui.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_vulkan.h>
+#define USE_VULKAN 0
+#if USE_VULKAN
+#include "vulkann.h"
+#endif
+
 struct Object
 {
 	int size_X;
@@ -66,24 +68,6 @@ int LTEG::engineCycle(GLFWwindow *window)
 	{
 		glfwPollEvents();
 
-		ImGui_ImplVulkan_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
-
-		ImGui::Begin("LTEG Engine Debug Menu");
-		ImGui::Text("Active Chunks: %zu", chunks.size());
-		ImGui::Text("Created Objects: %zu", objs.size());
-
-		if (ImGui::Button("Generate Chunk (UI)"))
-		{
-			generateChunk();
-		}
-		if (ImGui::Button("Add Object (UI)"))
-		{
-			addObject();
-		}
-		ImGui::End();
-
 		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
 		{
 			generateChunk();
@@ -99,8 +83,6 @@ int LTEG::engineCycle(GLFWwindow *window)
 
 			glfwSetWindowShouldClose(window, GLFW_TRUE);
 		}
-
-		ImGui::Render();
 
 		glfwSwapBuffers(window);
 	}

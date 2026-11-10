@@ -37,5 +37,4 @@ public:
     bool init_swapchain();
     bool init_image_views();
     bool init_dynamic_rendering();
-    bool init_IMGUI(GLFWwindow *window);
 };
