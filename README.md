@@ -40,5 +40,5 @@ Make sure you have a C++ compiler (MSVC, GCC, or Clang), CMake, and the appropri
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/karimdos14-maker/LTEG.git](https://github.com/karimdos14-maker/LTEG.git)
+   git clone [https://github.com/karimdos14-maker/LTEG.git]
    cd LTEG
