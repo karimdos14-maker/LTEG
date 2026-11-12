@@ -16,22 +16,19 @@
 
 ## 📖 Overview
 
-**LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built to support multiple backends including **OpenGL 3.3 Core** and **Vulkan**, it provides a lightweight, highly customizable foundation for building games from the ground up.
+**LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built to support multiple backends including **Vulkan**, it provides a lightweight, highly customizable foundation for building games from the ground up.
 
 ## ✨ Current Features
 
 * **Window & Context Management:** Hardware-accelerated window initialization and context creation via GLFW.
-* **Multi-API Graphics Support:** Modular setup for both OpenGL and Vulkan backends.
-* **Modern OpenGL Loader:** Dynamic OpenGL function loading powered by GLAD.
 * **Custom Engine Loop (`engineCycle`):** Dedicated tick and frame rendering architecture separated from platform initialization.
-* **Modular Codebase:** Clean separation between core engine logic (`LTEG.h`) and graphics wrappers (`opengl.h`).
+* **Modular Codebase:** Clean separation between core engine logic (`LTEG.h`) and graphics wrappers (`vulkann.h`).
 
 ## 🛠️ Tech Stack & Dependencies
 
 * **Language:** C++
-* **Graphics APIs:** OpenGL 3.3 Core Profile / Vulkan API
+* **Graphics APIs:** Vulkan API
 * **Windowing & Input:** [GLFW](https://www.glfw.org/)
-* **OpenGL Loader:** [GLAD](https://glad.dav1d.de/)
 
 ## 🚀 Getting Started
 
