@@ -1,8 +1,6 @@
 #include "vulkann.h"
 #include <iostream>
-#include <imgui.h>
-#include <imgui_impl_vulkan.h>
-#include <imgui_impl_glfw.h>
+
 bool VulkanL::init_vulkan_VkInstance()
 {
     try

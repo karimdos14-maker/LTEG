@@ -1,14 +1,15 @@
+#define GLFW_INCLUDE_NONE
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "LTEG.h"
 #include <vector>
 #include <iostream>
 #include <memory>
+#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 #include <thread>
 #include <chrono>
-#define USE_VULKAN 0
-#if USE_VULKAN
-#include "vulkann.h"
-#endif
+#include "opengl.h"
 
 struct Object
 {
@@ -64,8 +65,10 @@ void LTEG::addObject()
 }
 int LTEG::engineCycle(GLFWwindow *window)
 {
+	opengl glf;
 	while (!glfwWindowShouldClose(window))
 	{
+		glf.openglsrc();
 		glfwPollEvents();
 
 		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
@@ -73,6 +76,7 @@ int LTEG::engineCycle(GLFWwindow *window)
 			generateChunk();
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
+
 		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		{
 			addObject();
