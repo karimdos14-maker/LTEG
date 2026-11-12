@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🎮 LTEG (Lightweight Engine)</h1>
+  <h1>🎮 LTEG (Low Tier Engine Game)</h1>
   <p>A custom, from-scratch C++ game engine built on modern OpenGL.</p>
   
   <p>
