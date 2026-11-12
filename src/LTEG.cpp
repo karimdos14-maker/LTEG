@@ -1,15 +1,10 @@
-#define GLFW_INCLUDE_NONE
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+
 #include "LTEG.h"
 #include <vector>
 #include <iostream>
 #include <memory>
-#define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
 #include <thread>
 #include <chrono>
-#include "opengl.h"
 
 struct Object
 {
@@ -65,10 +60,10 @@ void LTEG::addObject()
 }
 int LTEG::engineCycle(GLFWwindow *window)
 {
-	opengl glf;
+
 	while (!glfwWindowShouldClose(window))
 	{
-		glf.openglsrc();
+
 		glfwPollEvents();
 
 		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)

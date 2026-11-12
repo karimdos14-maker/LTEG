@@ -1,14 +1,20 @@
-#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
-#include <glad/glad.h>
 #include <iostream>
 #include "LTEG.h"
-#include "opengl.h"
+
 int main()
 {
     if (!glfwInit())
     {
-        std::cout << "Failed to initialize GLFW" << std::endl;
+        std::cerr << "Failed to initialize GLFW\n";
+        return -1;
+    }
+    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+    GLFWwindow *window = glfwCreateWindow(480, 320, "LTEG Engine", nullptr, nullptr);
+    if (!window)
+    {
+        std::cerr << "Failed to create GLFW window\n";
+        glfwTerminate();
         return -1;
     }
     LTEG lteg;

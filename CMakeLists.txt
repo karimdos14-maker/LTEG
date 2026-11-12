@@ -13,13 +13,10 @@ set(GLFW_DIR "D:/glfw-3.5.1.bin.WIN64/glfw-3.5.1.bin.WIN64")
 add_executable(LTEG
     src/main.cpp
     src/LTEG.cpp
-    OpenGL/opengl.cpp
-    OpenGL/deps/src/glad.c
 )
 
 target_include_directories(LTEG PRIVATE
     src
-    OpenGL
     deps/include
     "${GLFW_DIR}/include"
     ${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/deps/include
@@ -31,6 +28,17 @@ target_link_directories(LTEG PRIVATE
 
 target_link_libraries(LTEG PRIVATE
     Vulkan::Vulkan
-    OpenGL::GL
     glfw3
 )
+include(FetchContent)
+
+FetchContent_Declare(
+    fetch_vk_bootstrap
+    GIT_REPOSITORY https://github.com/charles-lunarg/vk-bootstrap
+    GIT_TAG v1.4.311 
+)
+
+FetchContent_MakeAvailable(fetch_vk_bootstrap)
+
+
+target_link_libraries(LTEG PRIVATE vk-bootstrap::vk-bootstrap)
