@@ -1,11 +1,12 @@
 <div align="center">
-  <h1>🎮 LTEG (Low Tier Engine Game)</h1>
-  <p>A custom, from-scratch C++ game engine built on modern OpenGL.</p>
+  <h1>🎮 LTEG (Lightweight Engine)</h1>
+  <p>A custom, from-scratch C++ game engine built on modern OpenGL and Vulkan.</p>
   
   <p>
     <img src="https://img.shields.io/badge/C%2B%2B-17%2F20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
     <img src="https://img.shields.io/badge/OpenGL-3.3%20Core-5586A4?style=for-the-badge&logo=opengl&logoColor=white" alt="OpenGL">
-    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+    <img src="https://img.shields.io/badge/Vulkan-API-333333?style=for-the-badge&logo=vulkan&logoColor=AC142D" alt="Vulkan">
+    <img src="https://img.shields.io/badge/License-GPL-green?style=for-the-badge" alt="License">
     <img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge" alt="Status">
   </p>
 
@@ -16,19 +17,20 @@
 
 ## 📖 Overview
 
-**LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built directly on top of **OpenGL 3.3 Core**, **GLFW**, and **GLAD**, it provides a lightweight, dependency-minimal foundation for building games from the ground up.
+**LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built to support multiple backends including **OpenGL 3.3 Core** and **Vulkan**, it provides a lightweight, highly customizable foundation for building games from the ground up.
 
 ## ✨ Current Features
 
-* **Window & Context Management:** Hardware-accelerated window initialization and OpenGL 3.3 Core Profile context creation via GLFW.
+* **Window & Context Management:** Hardware-accelerated window initialization and context creation via GLFW.
+* **Multi-API Graphics Support:** Modular setup for both OpenGL and Vulkan backends.
 * **Modern OpenGL Loader:** Dynamic OpenGL function loading powered by GLAD.
 * **Custom Engine Loop (`engineCycle`):** Dedicated tick and frame rendering architecture separated from platform initialization.
-* **Modular Codebase:** Clean separation between core engine logic (`LTEG.h`) and graphics backend wrappers (`opengl.h`).
+* **Modular Codebase:** Clean separation between core engine logic (`LTEG.h`) and graphics wrappers (`opengl.h`).
 
 ## 🛠️ Tech Stack & Dependencies
 
 * **Language:** C++
-* **Graphics API:** OpenGL 3.3 Core Profile
+* **Graphics APIs:** OpenGL 3.3 Core Profile / Vulkan API
 * **Windowing & Input:** [GLFW](https://www.glfw.org/)
 * **OpenGL Loader:** [GLAD](https://glad.dav1d.de/)
 
@@ -36,7 +38,7 @@
 
 ### Prerequisites
 
-Make sure you have a C++ compiler (MSVC, GCC, or Clang) and CMake or Visual Studio configured with GLFW and GLAD include/library paths.
+Make sure you have a C++ compiler (MSVC, GCC, or Clang), CMake, and the appropriate SDKs (like the Vulkan SDK) configured on your system.
 
 ### Building & Running
 
