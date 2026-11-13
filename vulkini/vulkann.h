@@ -5,7 +5,16 @@
 #include <vector>
 class VulkanL
 {
+private:
+    GLFWwindow *window = glfwCreateWindow(800, 600, "LTEG", nullptr, nullptr);
+    VkSurfaceKHR surface = VK_NULL_HANDLE;
+    VkPhysicalDevice physical_device = VK_NULL_HANDLE;
+    VkDevice device = VK_NULL_HANDLE;
+    VkQueue graphics_queue = VK_NULL_HANDLE;
+    VkQueue present_queue = VK_NULL_HANDLE;
+    VkCommandPool command_pool = VK_NULL_HANDLE;
+    VkCommandBuffer command_buffer = VK_NULL_HANDLE;
 
 public:
-    bool init_vulkan();
+    bool init_vulkan(GLFWwindow *window);
 };
