@@ -4,7 +4,6 @@
   
   <p>
     <img src="https://img.shields.io/badge/C%2B%2B-17%2F20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
-  
     <img src="https://img.shields.io/badge/Vulkan-API-333333?style=for-the-badge&logo=vulkan&logoColor=AC142D" alt="Vulkan">
     <img src="https://img.shields.io/badge/License-GPL-green?style=for-the-badge" alt="License">
     <img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge" alt="Status">
