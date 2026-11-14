@@ -14,33 +14,33 @@ struct Object
 	int settingsObject[3];
 	std::vector<int> collectionObject;
 };
-struct NewChunk
+struct Chunk
 {
-	std::size_t newX;
-	std::size_t newY;
-	std::size_t newZ;
+	std::size_t X;
+	std::size_t Y;
+	std::size_t Z;
 };
 std::vector<int> id;
 int nextID = 1;
-std::vector<std::unique_ptr<NewChunk>> chunks;
+std::vector<std::unique_ptr<Chunk>> chunks;
 std::vector<std::unique_ptr<Object>> objs;
 void LTEG::generateChunk()
 {
 
-	auto newChunk = std::make_unique<NewChunk>();
+	auto chunkp = std::make_unique<Chunk>();
 	std::size_t currC = chunks.size();
-	newChunk->newX = 0;
-	newChunk->newY = 64;
-	newChunk->newZ = 0;
+	chunkp->X = 0;
+	chunkp->Y = 64;
+	chunkp->Z = 0;
 	std::cout << "Chunks " << chunks.size() << '\n';
-	newChunk->newX = currC * 16;
-	newChunk->newZ = currC * 16;
+	chunkp->X = currC * 16;
+	chunkp->Z = currC * 16;
 	std::cout << "Chunk Generate" << '\n';
 	std::cout << "His Coordinate:" << '\n';
-	std::cout << "X =  " << newChunk->newX << '\n';
-	std::cout << "Y =  " << newChunk->newY << '\n';
-	std::cout << "Z =  " << newChunk->newZ << '\n';
-	chunks.push_back(std::move(newChunk));
+	std::cout << "X =  " << chunkp->X << '\n';
+	std::cout << "Y =  " << chunkp->Y << '\n';
+	std::cout << "Z =  " << chunkp->Z << '\n';
+	chunks.push_back(std::move(chunkp));
 	std::cout << "Chunks " << chunks.size() << '\n';
 }
 void LTEG::deleteChunk()
@@ -65,6 +65,9 @@ void LTEG::addObject()
 	id.push_back(nextID);
 
 	nextID++;
+}
+bool LTEG::objectposition(int onbjectpos)
+{
 }
 int LTEG::engineCycle(GLFWwindow *window)
 {

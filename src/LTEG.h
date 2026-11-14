@@ -10,4 +10,5 @@ public:
     void generateChunk();
     void deleteChunk();
     void addObject();
+    bool objectposition(int objectpos);
 };
