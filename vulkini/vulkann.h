@@ -14,6 +14,9 @@ private:
     VkQueue present_queue = VK_NULL_HANDLE;
     VkCommandPool command_pool = VK_NULL_HANDLE;
     VkCommandBuffer command_buffer = VK_NULL_HANDLE;
+    vk::Semaphore _imageAvaibleSemaphore;
+    vk::Semaphore _renderFinishedSemaphore;
+    vk::Fence _inFlightFence;
 
 public:
     bool init_vulkan(GLFWwindow *window);

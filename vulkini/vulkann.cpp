@@ -130,4 +130,12 @@ bool VulkanL::init_vulkan(GLFWwindow *window)
         std::cout << "Failed to allocate command buffer!\n";
         return false;
     }
+    vk::SemaphoreCreateInfo semaphoreInfo{};
+
+    vk::FenceCreateInfo fenceInfo{};
+    fenceInfo.flags = vk::FenceCreateFlagBits::eSignaled;
+
+    _imageAvailableSemaphore = _device.createSemaphore(semaphoreInfo);
+    _renderFinishedSemaphore = _device.createSemaphore(semaphoreInfo);
+    _inFlightFence = _device.createFence(fenceInfo);
 }
