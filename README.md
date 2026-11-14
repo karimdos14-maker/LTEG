@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>🎮 LTEG (Lightweight Engine)</h1>
-  <p>A custom, from-scratch C++ game engine built on modern OpenGL and Vulkan.</p>
+  <h1>🎮 LTEG (Low Tier Engine Game)</h1>
+  <p>A custom, from-scratch C++ game engine built on  Vulkan.</p>
   
   <p>
     <img src="https://img.shields.io/badge/C%2B%2B-17%2F20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
@@ -16,20 +16,33 @@
 
 ## 📖 Overview
 
+<<<<<<< HEAD
 **LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built to support multiple backends including **Vulkan**, it provides a lightweight, highly customizable foundation for building games from the ground up.
+=======
+**LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built to support multiple backends including   **Vulkan**, it provides a lightweight, highly customizable foundation for building games from the ground up.
+>>>>>>> 8d23fe57592447821528aad040bcd5b6d93d31e8
 
 ## ✨ Current Features
 
 * **Window & Context Management:** Hardware-accelerated window initialization and context creation via GLFW.
 * **Custom Engine Loop (`engineCycle`):** Dedicated tick and frame rendering architecture separated from platform initialization.
+<<<<<<< HEAD
 * **Modular Codebase:** Clean separation between core engine logic (`LTEG.h`) and graphics wrappers (`vulkann.h`).
 
+=======
+* **Modular Codebase:** Clean separation between core engine logic (`LTEG.h`).
+  
+>>>>>>> 8d23fe57592447821528aad040bcd5b6d93d31e8
 ## 🛠️ Tech Stack & Dependencies
 
 * **Language:** C++
 * **Graphics APIs:** Vulkan API
 * **Windowing & Input:** [GLFW](https://www.glfw.org/)
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 8d23fe57592447821528aad040bcd5b6d93d31e8
 ## 🚀 Getting Started
 
 ### Prerequisites

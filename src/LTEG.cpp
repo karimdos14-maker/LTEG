@@ -20,6 +20,8 @@ struct NewChunk
 	std::size_t newY;
 	std::size_t newZ;
 };
+std::vector<int> id;
+int nextID = 1;
 std::vector<std::unique_ptr<NewChunk>> chunks;
 std::vector<std::unique_ptr<Object>> objs;
 void LTEG::generateChunk()
@@ -50,13 +52,19 @@ void LTEG::deleteChunk()
 }
 void LTEG::addObject()
 {
+
 	auto Obj = std::make_unique<Object>();
 	Obj->size_X = 1;
 	Obj->size_Y = 1;
 	Obj->size_Z = 1;
 	Obj->collectionObject.push_back(1);
-	std::cout << "object create\n";
+
+	std::cout << "object create with ID: " << nextID << "\n";
+
 	objs.push_back(std::move(Obj));
+	id.push_back(nextID);
+
+	nextID++;
 }
 int LTEG::engineCycle(GLFWwindow *window)
 {
