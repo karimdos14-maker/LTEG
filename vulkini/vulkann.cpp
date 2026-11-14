@@ -13,7 +13,6 @@ struct LTEGContext
     uint32_t graphicsFamily = 0;
     uint32_t presentFamily = 0;
 };
-
 bool initVulkan(GLFWwindow *window, LTEGContext &ctx)
 {
     // instance
