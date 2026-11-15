@@ -2,15 +2,31 @@
 #include <iostream>
 #include "LTEG.h"
 
-int main()
+int main(int argc, char **argv)
 {
+    int height;
+    int width;
+    for (int i = 1; i < argc; i++)
+    {
+        std::string arg = argv[i];
+        if (arg == "-width" && i + 1 < argc)
+        {
+            width = std::stoi(argv[i + 1]);
+            i++;
+        }
+        if (arg == "-height" && i + 1 < argc)
+        {
+            height = std::stoi(argv[i + 1]);
+            i++;
+        }
+    }
     if (!glfwInit())
     {
         std::cerr << "Failed to initialize GLFW\n";
         return -1;
     }
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    GLFWwindow *window = glfwCreateWindow(480, 320, "LTEG Engine", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(width, height, "LTEG Engine", nullptr, nullptr);
     if (!window)
     {
         std::cerr << "Failed to create GLFW window\n";

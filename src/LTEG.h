@@ -6,7 +6,7 @@ private:
     GLFWwindow *window;
 
 public:
-    int engineCycle(GLFWwindow *window);
+     int engineCycle(GLFWwindow *window);
     void generateChunk();
     void deleteChunk();
     void addObject();

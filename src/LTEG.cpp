@@ -66,8 +66,10 @@ void LTEG::addObject()
 
 	nextID++;
 }
-bool LTEG::objectposition(int onbjectpos)
+bool LTEG::objectposition(int objectpos)
 {
+	objectpos = 0;
+	return true;
 }
 int LTEG::engineCycle(GLFWwindow *window)
 {
