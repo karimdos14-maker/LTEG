@@ -66,9 +66,9 @@ void LTEG::addObject()
 
 	nextID++;
 }
-bool LTEG::objectposition(int objectpos)
+bool LTEG::objectposition()
 {
-	objectpos = 0;
+
 	return true;
 }
 int LTEG::engineCycle(GLFWwindow *window)
@@ -88,6 +88,7 @@ int LTEG::engineCycle(GLFWwindow *window)
 		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		{
 			addObject();
+
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
 		if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)

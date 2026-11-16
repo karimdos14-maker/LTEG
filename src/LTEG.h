@@ -4,11 +4,12 @@ class LTEG
 {
 private:
     GLFWwindow *window;
+    int objposition[3] = {0, 0, 0};
 
 public:
-     int engineCycle(GLFWwindow *window);
+    int engineCycle(GLFWwindow *window);
     void generateChunk();
     void deleteChunk();
     void addObject();
-    bool objectposition(int objectpos);
+    bool objectposition();
 };
