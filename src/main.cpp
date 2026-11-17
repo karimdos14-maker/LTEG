@@ -1,12 +1,15 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "LTEG.h"
-
+#define API 0
+#if API == 1
+#include "vulkann.h"
+#endif
 int main(int argc, char **argv)
 {
+    int width = 800;
+    int height = 600;
 
-    int height;
-    int width;
     for (int i = 1; i < argc; i++)
     {
         std::string arg = argv[i];
@@ -20,9 +23,10 @@ int main(int argc, char **argv)
             height = std::stoi(argv[i + 1]);
             i++;
         }
-        if (arg == "-api " && i + 1 < argc)
+        if (arg == "-api" && i + 1 < argc)
         {
-#include "vulkann.h"
+            std::string api_value = argv[i + 1];
+            i++;
         }
     }
     if (!glfwInit())
