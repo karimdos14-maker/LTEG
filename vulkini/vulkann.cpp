@@ -276,3 +276,12 @@ void shutdownVulkan(LTEGContext &ctx)
     vkb::destroy_surface(ctx.instance, ctx.surface);
     vkb::destroy_instance(ctx.instance);
 }
+int vulkanRun()
+{
+    bool createSwapchain(GLFWwindow * window, LTEGContext & ctx);
+    bool initVulkan(GLFWwindow * window, LTEGContext & ctx);
+    bool initCommandsAndSync(LTEGContext & ctx);
+    void transitionImage(VkCommandBuffer cmd, VkImage image, VkImageLayout currentLayout, VkImageLayout newLayout);
+    void drawFrame(LTEGContext & ctx);
+    void shutdownVulkan(LTEGContext & ctx);
+}

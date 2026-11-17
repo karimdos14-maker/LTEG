@@ -8,4 +8,5 @@ class VulkanL
 private:
 public:
     bool init_vulkan(GLFWwindow *window);
+    int vulkanRun();
 };

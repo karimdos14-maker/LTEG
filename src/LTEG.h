@@ -1,10 +1,10 @@
 #pragma once
 #include <GLFW/glfw3.h>
+#include <memory>
 class LTEG
 {
 private:
     GLFWwindow *window;
-    int objposition[3] = {0, 0, 0};
 
 public:
     int engineCycle(GLFWwindow *window);

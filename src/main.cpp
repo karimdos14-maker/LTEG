@@ -4,6 +4,7 @@
 
 int main(int argc, char **argv)
 {
+
     int height;
     int width;
     for (int i = 1; i < argc; i++)
@@ -18,6 +19,10 @@ int main(int argc, char **argv)
         {
             height = std::stoi(argv[i + 1]);
             i++;
+        }
+        if (arg == "-api " && i + 1 < argc)
+        {
+#include "vulkann.h"
         }
     }
     if (!glfwInit())

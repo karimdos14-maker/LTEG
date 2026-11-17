@@ -24,9 +24,9 @@ std::vector<int> id;
 int nextID = 1;
 std::vector<std::unique_ptr<Chunk>> chunks;
 std::vector<std::unique_ptr<Object>> objs;
+
 void LTEG::generateChunk()
 {
-
 	auto chunkp = std::make_unique<Chunk>();
 	std::size_t currC = chunks.size();
 	chunkp->X = 0;
@@ -42,6 +42,7 @@ void LTEG::generateChunk()
 	std::cout << "Z =  " << chunkp->Z << '\n';
 	chunks.push_back(std::move(chunkp));
 	std::cout << "Chunks " << chunks.size() << '\n';
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
 void LTEG::deleteChunk()
 {
@@ -49,6 +50,7 @@ void LTEG::deleteChunk()
 	{
 		chunks.erase(chunks.begin());
 	}
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
 void LTEG::addObject()
 {
@@ -65,10 +67,13 @@ void LTEG::addObject()
 	id.push_back(nextID);
 
 	nextID++;
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
 bool LTEG::objectposition()
 {
-
+	int objposition[3] = {0, 0, 0};
+	bool def_position = true;
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	return true;
 }
 int LTEG::engineCycle(GLFWwindow *window)
@@ -82,21 +87,21 @@ int LTEG::engineCycle(GLFWwindow *window)
 		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
 		{
 			generateChunk();
-			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		{
 			addObject();
-
-			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
 		if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
 		{
 
 			glfwSetWindowShouldClose(window, GLFW_TRUE);
 		}
-
+		if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+		{
+			deleteChunk();
+		}
 		glfwSwapBuffers(window);
 	}
 
