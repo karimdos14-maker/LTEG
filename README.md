@@ -16,11 +16,10 @@
 
 ## 📖 Overview
 
-<<<<<<< HEAD
+
 **LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built to support multiple backends including **Vulkan**, it provides a lightweight, highly customizable foundation for building games from the ground up.
 =======
 **LTEG** is a custom game engine written in C++ designed to explore low-level graphics programming, rendering pipelines, and real-time game loop architecture. Built to support multiple backends including   **Vulkan**, it provides a lightweight, highly customizable foundation for building games from the ground up.
->>>>>>> 8d23fe57592447821528aad040bcd5b6d93d31e8
 
 ## ✨ Current Features
 
