@@ -1,4 +1,3 @@
-
 #include "LTEG.h"
 #include <vector>
 #include <iostream>
@@ -73,12 +72,12 @@ bool LTEG::objectposition()
 {
 	int objposition[3] = {0, 0, 0};
 	bool def_position = true;
+
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	return true;
 }
 int LTEG::engineCycle(GLFWwindow *window)
 {
-
 	while (!glfwWindowShouldClose(window))
 	{
 
@@ -95,7 +94,6 @@ int LTEG::engineCycle(GLFWwindow *window)
 		}
 		if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
 		{
-
 			glfwSetWindowShouldClose(window, GLFW_TRUE);
 		}
 		if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)

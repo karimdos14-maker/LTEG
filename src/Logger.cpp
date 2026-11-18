@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <fstream>
 #include <string>
 
@@ -15,3 +15,4 @@ void Log(const std::string &message, const std::string &debug)
     file << "[INFO] " << message << '\n';
     file << "[DEBUG]" << debug << '\n';
 }
+    */
