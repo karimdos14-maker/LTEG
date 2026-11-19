@@ -17,7 +17,6 @@ add_executable(LTEG
 
 target_include_directories(LTEG PRIVATE
     src
-    vulkini
     "${GLFW_DIR}/include"
     ${CMAKE_CURRENT_SOURCE_DIR}/OpenGL/deps/include
 )

@@ -19,6 +19,7 @@ struct Chunk
 	std::size_t Y;
 	std::size_t Z;
 };
+std::vector<int> objarr;
 std::vector<int> id;
 int nextID = 1;
 std::vector<std::unique_ptr<Chunk>> chunks;
@@ -68,14 +69,7 @@ void LTEG::addObject()
 	nextID++;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
-bool LTEG::objectposition()
-{
-	int objposition[3] = {0, 0, 0};
-	bool def_position = true;
 
-	std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	return true;
-}
 int LTEG::engineCycle(GLFWwindow *window)
 {
 	while (!glfwWindowShouldClose(window))
@@ -87,7 +81,6 @@ int LTEG::engineCycle(GLFWwindow *window)
 		{
 			generateChunk();
 		}
-
 		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		{
 			addObject();
