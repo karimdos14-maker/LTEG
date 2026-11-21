@@ -5,21 +5,16 @@ class LTEG
 {
 private:
     GLFWwindow *window;
-    int camerPos[3];
-    float c_X = 1.0f;
-    float c_Y = 1.0f;
-    float c_Z = 1.0f;
+
+    float c_X = 0.0f;
+    float c_Y = 0.0f;
+    float c_Z = 0.0f;
+    float cameraPos[3] = {c_X, c_Y, c_Z};
 
 public:
     int engineCycle(GLFWwindow *window);
     void generateChunk();
     void deleteChunk();
     void addObject();
-    void cameraposition(int XYZ[3], float cameraX, float cameraY, float cameraZ, GLFWwindow *window)
-    {
-        XYZ[3] = camerPos;
-        cameraX = c_X;
-        cameraY = c_Y;
-        cameraZ = c_Z;
-    };
+    void cameraposition(float (&XYZ)[3], float &cameraX, float &cameraY, float &cameraZ, GLFWwindow *window);
 };

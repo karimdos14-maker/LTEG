@@ -70,15 +70,8 @@ void LTEG::addObject()
 	nextID++;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
-void LTEG::cameraposition(int XYZ[3], float cameraX, float cameraY, float cameraZ, GLFWwindow *window)
+void LTEG::cameraposition(float (&XYZ)[3], float &cameraX, float &cameraY, float &cameraZ, GLFWwindow *window)
 {
-	cameraX = c_X;
-	cameraY = c_Y;
-	cameraZ = c_Z;
-	XYZ[0] = {cameraX};
-	XYZ[1] = {cameraY};
-	XYZ[2] = {cameraZ};
-
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
 		cameraY += 0.1f;
@@ -91,26 +84,31 @@ void LTEG::cameraposition(int XYZ[3], float cameraX, float cameraY, float camera
 	{
 		cameraZ += 0.1f;
 	}
-	else if ((glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS))
+	else if ((glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS))
 	{
 		cameraZ -= 0.1f;
 	}
-	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
 	{
 		cameraX += 0.1f;
 	}
-	else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+	else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
 	{
 		cameraX -= 0.1f;
 	}
+	for (int i = 0; i < 3; i++)
+	{
+		std::cout << XYZ[0] << XYZ[1] << XYZ[2] << '\n';
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	}
 }
+
 int LTEG::engineCycle(GLFWwindow *window)
 {
 	while (!glfwWindowShouldClose(window))
 	{
-
+		cameraposition(cameraPos, c_X, c_Y, c_Z, window);
 		glfwPollEvents();
-
 		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
 		{
 			generateChunk();
